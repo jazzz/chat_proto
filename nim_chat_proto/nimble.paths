@@ -1,0 +1,11 @@
+--noNimblePath
+--path:"/root/.nimble/pkgs2/results-0.5.1-a9c011f74bc9ed5c91103917b9f382b12e82a9e7"
+--path:"/root/.nimble/pkgs2/unittest2-0.2.3-6936b4e4676c9b37537d93f31cb8fc46f4ebaacb"
+--path:"/root/.nimble/pkgs2/faststreams-0.3.0-ec2d92793e7d1bd0c30ab29c0d20548a054cfa8e"
+--path:"/root/.nimble/pkgs2/protobuf_serialization-0.3.0-fb88a5c0db8f00f0ca65523f9e7bfa81e91e6984"
+--path:"/root/.nimble/pkgs2/serialization-0.2.6-26deca68e1a027be90e2bf2856e25aa819101d1e"
+--path:"/root/.nimble/pkgs2/testutils-0.5.3-2841517f3891ab396cb78d98d46ffd2551176f4b"
+--path:"/root/.nimble/pkgs2/stew-0.2.0-26d477c735913b7daa1dab53dd74803c88209634"
+--path:"/root/.nimble/pkgs2/json_serialization-0.2.9-4062dc791d268930701bdef55b5cc35f82303ad3"
+--path:"/root/.nimble/pkgs2/chronicles-0.10.3-79f09526d4d9b9196dd2f6a75310d71a890c4f88"
+--path:"/root/.nimble/pkgs2/npeg-1.2.0-bfe84b7b89a4f92e9ca6d9be8256bdda032e556b"
