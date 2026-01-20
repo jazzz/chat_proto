@@ -4,52 +4,60 @@
 /// Alternatives: ???
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct EncryptedPayload {
-    #[prost(oneof="encrypted_payload::Encryption", tags="1, 2, 3")]
+    #[prost(oneof = "encrypted_payload::Encryption", tags = "1, 2, 3")]
     pub encryption: ::core::option::Option<encrypted_payload::Encryption>,
 }
 /// Nested message and enum types in `EncryptedPayload`.
 pub mod encrypted_payload {
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
     pub enum Encryption {
-        #[prost(message, tag="1")]
+        #[prost(message, tag = "1")]
         Plaintext(super::Plaintext),
-        #[prost(message, tag="2")]
+        #[prost(message, tag = "2")]
         Doubleratchet(super::Doubleratchet),
-        #[prost(message, tag="3")]
-        Xk0(super::Xk0),
+        #[prost(message, tag = "3")]
+        InboxHandshake(super::InboxHandshakeV1),
     }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Plaintext {
-    #[prost(bytes="bytes", tag="1")]
+    #[prost(bytes = "bytes", tag = "1")]
     pub payload: ::prost::bytes::Bytes,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Doubleratchet {
     /// 32 byte array
-    #[prost(bytes="bytes", tag="1")]
+    #[prost(bytes = "bytes", tag = "1")]
     pub dh: ::prost::bytes::Bytes,
-    #[prost(uint32, tag="2")]
+    #[prost(uint32, tag = "2")]
     pub msg_num: u32,
-    #[prost(uint32, tag="3")]
+    #[prost(uint32, tag = "3")]
     pub prev_chain_len: u32,
-    #[prost(bytes="bytes", tag="4")]
+    #[prost(bytes = "bytes", tag = "4")]
     pub ciphertext: ::prost::bytes::Bytes,
-    #[prost(string, tag="5")]
+    #[prost(string, tag = "5")]
     pub aux: ::prost::alloc::string::String,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
-pub struct Xk0 {
-    #[prost(bytes="bytes", tag="1")]
-    pub initiator_static: ::prost::bytes::Bytes,
-    #[prost(bytes="bytes", tag="2")]
-    pub initiator_ephemeral: ::prost::bytes::Bytes,
-    #[prost(bytes="bytes", tag="3")]
-    pub responder_static: ::prost::bytes::Bytes,
-    /// Replace with RKI to save bytes
-    #[prost(bytes="bytes", tag="4")]
-    pub responder_ephemeral: ::prost::bytes::Bytes,
-    #[prost(bytes="bytes", tag="5")]
+pub struct InboxHandshakeV1 {
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<inbox_handshake_v1::InboxHeaderV1>,
+    #[prost(bytes = "bytes", tag = "2")]
     pub payload: ::prost::bytes::Bytes,
+}
+/// Nested message and enum types in `InboxHandshakeV1`.
+pub mod inbox_handshake_v1 {
+    #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+    pub struct InboxHeaderV1 {
+        #[prost(bytes = "bytes", tag = "1")]
+        pub initiator_static: ::prost::bytes::Bytes,
+        #[prost(bytes = "bytes", tag = "2")]
+        pub initiator_ephemeral: ::prost::bytes::Bytes,
+        #[prost(bytes = "bytes", tag = "3")]
+        pub responder_static: ::prost::bytes::Bytes,
+        /// Replace with RKI to save bytes
+        #[prost(bytes = "bytes", tag = "4")]
+        pub responder_ephemeral: ::prost::bytes::Bytes,
+    }
 }
 // @@protoc_insertion_point(module)
